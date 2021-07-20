@@ -1,24 +1,25 @@
-const base_url = 'https://api.magicthegathering.io/v1' //This was cat facts originally
+const base_url = 'https://cat-fact.herokuapp.com' 
 
-const endpoint1 = '/cards'
+const endpoint1 = '/facts'
 
-fetch(base_url + endpoint1).then( res => {
-    return res.json();
-}).then( facts => {
-    // console.log(facts);
-
-    let cards = facts.cards; //facts.cards is pulling all 100 available cards to display
-    console.log(cards);
-
-    //Get Data Value
-    let output = ""
-
-    // facts.forEach( catFactObject => {
-    //     const li = document.createElement('li');
-    //     document.body.appendChild(li);
-    //     li.innerText = catFactObject.text;
+fetch(base_url + endpoint1) 
+    .then( response => { //then take that information and turn it into a variable we have called response of the previous line
+    return response.json(); // and return the conversion of the response, which was jumbled nonsense
+})  .then( catFacts => { // and THEN take THAT information and turn it into a variable we have called catFacts
+    console.log(catFacts); // console log the information
+    console.log(Math.floor(Math.random()*5)); //console log a random number between 0 and 4)
+    alert(catFacts[Math.floor(Math.random()*5)].text) //thank you Austin! alert a random fact from the cat API
+    // catFacts.forEach( catFactObject => {
+        // const li = document.createElement('li');
+        // document.body.appendChild(li);
+        // li.innerText = catFactObject.text;
     // })
 });
+
+
+
+
+// Pokemon Stuff
 
 
 // const offsetInput = document.querySelectorAll('input')[0];
